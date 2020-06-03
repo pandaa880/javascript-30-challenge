@@ -1,4 +1,4 @@
-window.addEventListener("keydown", function (e) {
+function playSound(e) {
   // select an audio with associated keyCode
   const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
   const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
@@ -14,7 +14,7 @@ window.addEventListener("keydown", function (e) {
 
   // add class for animation
   key.classList.add("playing");
-});
+}
 
 // remove transition
 function removeTransition(e) {
@@ -32,3 +32,5 @@ const keys = document.querySelectorAll(".key");
 keys.forEach((key) => {
   key.addEventListener("transitionend", removeTransition);
 });
+
+window.addEventListener("keydown", playSound);
